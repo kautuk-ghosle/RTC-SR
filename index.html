@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RTC Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+  <div class="login-container">
+  <img src="images/aai.png" alt="RTC Logo" class="logo">
+  <!-- login form remains unchanged -->
+</div>
+
+    <h2>Regional Training Centre - SR</h2>
+    <form class="login-form" onsubmit="return validateLogin()">
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <p id="error-msg" style="color:red; margin-top:10px;"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

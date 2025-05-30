@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ongoing Trainings</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #0078D7;
+      color: white;
+      padding: 10px 30px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: white;
+      margin-left: 15px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    #searchInput {
+      padding: 8px;
+      width: 300px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #0078D7;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #eef;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="role">RTC-SR</div>
+    <div class="user-info">
+      KAUTUK GHOSLE
+      <div class="user-icon"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <h2>Ongoing Trainings</h2>
+    <input type="text" id="searchInput" placeholder="Search training, station, equipment...">
+
+    <table id="trainingTable">
+      <thead>
+        <tr>
+          <th>Training Name</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Rating Amount</th>
+          <th>Station</th>
+          <th>Duration</th>
+          <th>Date (From / To)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>DVOR Training</td><td>Indra</td><td>D200</td><td>₹1500</td><td>VOMM</td><td>2 Weeks</td><td>2025-05-20 / 2025-06-03</td></tr>
+        <tr><td>ILS Training</td><td>Thales</td><td>I500</td><td>₹1800</td><td>VOBL</td><td>10 Days</td><td>2025-05-25 / 2025-06-04</td></tr>
+        <tr><td>DME Training</td><td>Raytheon</td><td>D100</td><td>₹1200</td><td>VECC</td><td>1 Week</td><td>2025-05-22 / 2025-05-29</td></tr>
+        <tr><td>VCCS Training</td><td>Harris</td><td>HX300</td><td>₹1600</td><td>VIDP</td><td>12 Days</td><td>2025-05-18 / 2025-05-30</td></tr>
+        <tr><td>DVOR Training</td><td>Indra</td><td>D150</td><td>₹1500</td><td>VOCI</td><td>2 Weeks</td><td>2025-05-19 / 2025-06-02</td></tr>
+        <tr><td>ILS Training</td><td>Thales</td><td>I700</td><td>₹1850</td><td>VOMM</td><td>2 Weeks</td><td>2025-05-23 / 2025-06-06</td></tr>
+        <tr><td>DME Training</td><td>Raytheon</td><td>D380</td><td>₹1250</td><td>VOBL</td><td>9 Days</td><td>2025-05-26 / 2025-06-04</td></tr>
+        <tr><td>VCCS Training</td><td>Harris</td><td>HX100</td><td>₹1600</td><td>VECC</td><td>1 Week</td><td>2025-05-27 / 2025-06-03</td></tr>
+        <tr><td>DVOR Training</td><td>Indra</td><td>D260</td><td>₹1500</td><td>VECC</td><td>10 Days</td><td>2025-05-28 / 2025-06-07</td></tr>
+        <tr><td>ILS Training</td><td>Thales</td><td>I800</td><td>₹1900</td><td>VOCI</td><td>2 Weeks</td><td>2025-05-29 / 2025-06-12</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const table = document.getElementById('trainingTable');
+    const rows = table.getElementsByTagName('tr');
+
+    searchInput.addEventListener('keyup', function () {
+      const filter = searchInput.value.toLowerCase();
+      for (let i = 1; i < rows.length; i++) {
+        let visible = false;
+        const cells = rows[i].getElementsByTagName('td');
+        for (let j = 0; j < cells.length; j++) {
+          if (cells[j].innerText.toLowerCase().includes(filter)) {
+            visible = true;
+            break;
+          }
+        }
+        rows[i].style.display = visible ? '' : 'none';
+      }
+    });
+  </script>
+</body>
+</html>
+
